@@ -30,5 +30,6 @@ int print_pointer(va_list val);
 int print_hex_extra(unsigned long int val);
 int print_reve (va_list val);
 int print_rot13(va_list val);
-
+int apply_flags_for_signed_number(int flags, int num, char conversion_specifier);
+int apply_flags_for_hex(int flags, unsigned int num, char conversion_specifier);
 #endif

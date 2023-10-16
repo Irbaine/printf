@@ -8,10 +8,10 @@
 int print_string(va_list str)
 {
     char *s;
-	int i, len = 0;
-	int value;
-	
-	s = va_arg(str, char *);
+    int i, len = 0;
+    int value;
+
+    s = va_arg(str, char *);
     if (s == NULL)
         s = "(null)";
 
@@ -26,15 +26,16 @@ int print_string(va_list str)
             if (value < 16)
             {
                 _putchar('0');
-				len++;
-			}
-            len += print_HEX_extra(value); 
+                len++;
+            }
+            len += print_HEX_extra(value);
         }
-	else {
-	 _putchar(s[i]);
-	 len++;
-	}
+        else {
+            _putchar(s[i]);
+            len++;
+        }
     }
 
     return len;
 }
+
