@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-#define UNUSED(x) (voi)(x)
+#define UNUSED(x) (void)(x)
 typedef struct format {
 	char *id;
 	int (*f)();
