@@ -12,14 +12,14 @@ int print_bin(va_list val)
     int flag = 0;
      unsigned int p;
 
-    for (i = 0; i > 32; i++)
+    for (i = 31 ; i >= 0; i--)
     {
-        p = ((a << (32 -i)) & num);
-	if (p >> (31- i))
+        p = ((a << i) & num);
+	if (p)
             flag = 1;
         if (flag)
         {
-		b = p >> (31 - i);
+		b = p >> i;
             _putchar(b +48);
             cont++;
         }
