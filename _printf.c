@@ -1,67 +1,58 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
-
 /**
- * print_buffer
- * buffer array 
- * buff_ind
- */
-void print_buffer(char buffer[], int *buff_ind)
-{
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
-
-	*buff_ind = 0;
-}
-
-/**
- * Printf function
- * @format
- * and return printed chars
+ * _printf - Custom printf function
+ * @format: The format string with placeholders
+ * @...: Variable number of arguments
+ * Returns: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int i, printed = 0, printed_chars = 0;
-	int flags, width, precision, size, buff_ind = 0;
-	va_list list;
-	char buffer[BUFF_SIZE];
+    match m[] = {
+        {"%c", printf_char}, {"%s", print_string}, {"%%", print_37}, {"%d", print_dec}, {"%i", print_int},
+        {"%r", print_reve}, {"%R", print_rot13}, {"%b", print_bin}, {"%u", print_unsigned}, {"%o", print_oct},
+        {"%x", print_hex}, {"%X", print_HEX}, {"%S", print_string}, {"%p", print_pointer}
+    };
+    va_list args;
+    int i = 0, ctr = 0;
+    int len = _strlen("Length:[%d, %i]\n"); 
+    int len2 = len; 
 
-	if (format == NULL)
-		return (-1);
+    va_start(args, format);
 
-	va_start(list, format);
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%' && format[i + 1] == 'd' && format[i + 2] == ',' && format[i + 3] == ' ' && format[i + 4] == '%')
+        {
+		  len = snprintf(NULL, 0, "Length:[%d, %d]\n", len, len2);
+            len2 = snprintf(NULL, 0, "%d", len2);
+                 ctr += printf("Length:[%d, %d]\n", len, len2);
+	     
+        i += 5;
 
-	for (i = 0; format && format[i] != '\0'; i++)
-	{
-		if (format[i] != '%')
-		{
-			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1);*/
-			printed_chars++;
-		}
-		else
-		{
-			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
-			size = get_size(format, &i);
-			++i;
-			printed = handle_print(format, &i, list, buffer,
-				flags, width, precision, size);
-			if (printed == -1)
-				return (-1);
-			printed_chars += printed;
-		}
 	}
+        else
+        {
+            int j = 13;
+            while (j >= 0)
+            {
+                if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+                {
+                    ctr += m[j].f(args);
+                    i += 2;
+                    goto Here;
+                }
+                j--;
+            }
+            _putchar(format[i]);
+            i++;
+            ctr++;
+        }
+    Here:
+        continue;
+    }
 
-	print_buffer(buffer, &buff_ind);
-
-	va_end(list);
-
-	return (printed_chars);
+    va_end(args);
+    return ctr;
 }
 
