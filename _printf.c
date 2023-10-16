@@ -14,45 +14,30 @@ int _printf(const char *format, ...)
         {"%x", print_hex}, {"%X", print_HEX}, {"%S", print_string}, {"%p", print_pointer}
     };
     va_list args;
-    int i = 0, ctr = 0;
-    int len = _strlen("Length:[%d, %i]\n"); 
-    int len2 = len; 
+    int i = 0, len = 0; 
+    int j;
 
-    va_start(args, format);
-
-    while (format[i] != '\0')
-    {
-        if (format[i] == '%' && format[i + 1] == 'd' && format[i + 2] == ',' && format[i + 3] == ' ' && format[i + 4] == '%')
-        {
-		  len = snprintf(NULL, 0, "Length:[%d, %d]\n", len, len2);
-            len2 = snprintf(NULL, 0, "%d", len2);
-                 ctr += printf("Length:[%d, %d]\n", len, len2);
-	     
-        i += 5;
-
-	}
-        else
-        {
-            int j = 13;
-            while (j >= 0)
-            {
-                if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
-                {
-                    ctr += m[j].f(args);
-                    i += 2;
-                    goto Here;
-                }
-                j--;
-            }
-            _putchar(format[i]);
-            i++;
-            ctr++;
-        }
-    Here:
-        continue;
-    }
-
-    va_end(args);
-    return ctr;
-}
-
+va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+Here:
+	while (format [i] != '\0')
+	{
+		j = 13;
+		while (j>= 0)
+		{
+				if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+				{
+						len += m[j].f(args);
+						i+= 2; 
+						goto Here;
+					}
+					j--;
+				}		
+				_putchar(format [i]);
+				i++;
+				len++;
+			}	
+			va_end(args);
+			return (len);
+		}	

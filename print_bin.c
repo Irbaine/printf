@@ -8,17 +8,19 @@ int print_bin(va_list val)
 {
     unsigned int num = va_arg(val, unsigned int);
     int cont = 0;
-    int i;
+    int i,a = 1 , b;
     int flag = 0;
+     unsigned int p;
 
-    for (i = 31; i >= 0; i--)
+    for (i = 0; i > 32; i++)
     {
-        int bit = (num >> i) & 1;
-        if (bit == 1)
+        p = ((a << (32 -i)) & num);
+	if (p >> (31- i))
             flag = 1;
         if (flag)
         {
-            _putchar(bit + '0');
+		b = p >> (31 - i);
+            _putchar(b +48);
             cont++;
         }
   }

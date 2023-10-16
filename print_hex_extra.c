@@ -8,7 +8,7 @@
 int print_hex_extra(unsigned long int val)
 {
 	long int i, counter = 0;
-	char *array;
+	long int *array;
 	unsigned long int tem = val;
 	
 	while (val / 16 != 0)
@@ -17,7 +17,7 @@ int print_hex_extra(unsigned long int val)
 		counter++;
 	}
 	counter++;
-	array = malloc(sizeof(char) * counter);
+	array = malloc(sizeof(long int) * counter);
 	if (array == NULL)
 		return (-1);
 	for (i = 0; i < counter; i++)
@@ -29,8 +29,8 @@ int print_hex_extra(unsigned long int val)
 	{
 		if (array[i] > 9)
 		{
-		  array[i] = array[i] + 'a' - 10;
-		_putchar(array[i] + 'a');
+		  array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
 	}
 	else
 	{

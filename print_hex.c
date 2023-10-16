@@ -8,7 +8,7 @@
 int print_hex(va_list val)
 {
 	int i, counter = 0;
-	char *array;
+	int *array;
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
 	
@@ -18,7 +18,7 @@ int print_hex(va_list val)
 		counter++;
 	}
 	counter++;
-	array = malloc(sizeof(char) * counter);
+	array = malloc(sizeof(int) * counter);
 	if (array == NULL)
 		return (-1);
 	for (i = 0; i < counter; i++)
@@ -26,18 +26,13 @@ int print_hex(va_list val)
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for(i = counter - 1; i >= 0; i--)
+	for(i = counter - 1; i >= 0; i++)
 	{
 		if (array[i] > 9)
-		{
-		  array[i] = array[i] - 10;
-		_putchar(array[i] + 'a');
-	}
-	else
-	{
+		  array[i] = array[i] +39;
 		_putchar(array[i] + '0');
-		}
+	
 	}
-	free (array);
+	free(array);
 	return counter;
 }

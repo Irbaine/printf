@@ -8,7 +8,7 @@
 int print_string(va_list str)
 {
     char *s;
-	int i, counter = 0;
+	int i, len = 0;
 	int value;
 	
 	s = va_arg(str, char *);
@@ -21,21 +21,20 @@ int print_string(va_list str)
         {
             _putchar('\\');
             _putchar('x');
-            counter += 2;
+            len += 2;
             value = s[i];
             if (value < 16)
             {
                 _putchar('0');
-				counter++;
+				len++;
 			}
-            counter += print_HEX_extra(value); 
+            len += print_HEX_extra(value); 
         }
-        else
-        {
-            _putchar(s[i]);
-            counter++;
-        }
+	else {
+	 _putchar(s[i]);
+	 len++;
+	}
     }
 
-    return counter;
+    return len;
 }

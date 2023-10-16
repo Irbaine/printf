@@ -5,7 +5,7 @@
 * @ar: argument to print
 * Return: number of characters printed
 */
- int print_int (va_list ar)
+ int print_int(va_list ar)
  {
  
 	int n = va_arg(ar, int);
@@ -53,7 +53,7 @@
 * @ar: argument to print
 * Return: number of characters printed
 */
- int print_dec (va_list ar)
+ int print_dec(va_list ar)
  {
 
 	int n = va_arg(ar, int);
