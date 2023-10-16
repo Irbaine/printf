@@ -4,8 +4,6 @@
 #include <stdarg.h>
 #include "main.h"
 #define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-#define BUF_FLUSH -1
 typedef struct format 
 {
 	char *id;
