@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-typedef struct format 
-{
+#define UNUSED(x) (void)(x)
+typedef struct format {
 	char *id;
 	int (*f)();
 } match;
