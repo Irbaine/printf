@@ -1,20 +1,20 @@
 #include "main.h"
 /**
- * print_reve - prints a string in reverse
- * @val: The string to be printed in reverse
- * Return: The number of characters printed
+ * print_reve - print and reverse
+ * @val: The values of the string to be printed
+ * Return: The number of printed characters
  */
  int print_reve (va_list val) 
  {
 	char *s = va_arg(val, char*);
 	int i;
-	int j = 0;
+	int k = 0;
 	
 	if (s == NULL)
 		s = "(null)";
-	while (s[j] != '\0')
-		j++;
-	for (i = j- 1; i>= 0; i--)
+	while (s[k] != '\0')
+		k++;
+	for (i = k- 1; i>= 0; i--)
 		_putchar(s[i]);
-	return j;
+	return k;
 }
