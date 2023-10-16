@@ -1,15 +1,13 @@
-#include"main.h"
-#include <stdarg.h>
+#include "main.h"
 /**
-* printf_int - prints integer
+* printf_dec - prints decimal
 * @ar: argument to print
 * Return: number of characters printed
 */
- int print_int(va_list ar)
+ int print_dec (va_list ar)
  {
  
 	int n = va_arg(ar, int);
-	
 	int num, 
 	last = n % 10, 
 	digit, 
@@ -42,6 +40,7 @@
 		exp = exp / 10;
 		i++;
 	}
-	}_putchar (last + '0');
+	}
+	_putchar (last + '0');
 	return (i);
 }

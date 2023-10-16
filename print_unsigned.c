@@ -37,7 +37,6 @@ int print_unsigned(va_list ar)
         {
                 digit = num / exp;
                 _putchar (digit + '0');
-                _putchar (digit + '0');
                 num = num - (digit * exp);
                 exp = exp / 10;
                 i++;
