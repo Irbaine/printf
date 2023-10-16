@@ -3,9 +3,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-#define UNUSED(x) (void)(x)
-typedef struct format 
-{
+#include <unistd>
+#define OUTPUT_BUF_SIZE 1024
+#define BUF_FLUSH -1
+#define UNUSED(x) (voi)(x)
+typedef struct format {
 	char *id;
 	int (*f)();
 } match;
