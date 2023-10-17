@@ -1,20 +1,21 @@
 #include"main.h"
 #include <stdarg.h>
 /**
-* printf_int - prints integer
+* print_int - prints integer
 * @ar: argument to print
 * Return: number of characters printed
 */
- int print_int(va_list ar)
- {
- 
+
+int print_int(va_list ar)
+{
 	int n = va_arg(ar, int);
-	
-	int num, 
-	last = n % 10, 
-	digit, 
+
+	int num,
+	last = n % 10,
+	digit,
 	exp = 1;
 	int i = 1;
+
 	n = n / 10;
 
 	num = n;
@@ -38,10 +39,11 @@
 	{
 		digit = num / exp;
 		_putchar (digit + '0');
-	  	num = num - (digit * exp);
+		num = num - (digit * exp);
 		exp = exp / 10;
 		i++;
 	}
-	}_putchar (last + '0');
+	}
+	_putchar (last + '0');
 	return (i);
 }

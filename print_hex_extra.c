@@ -5,12 +5,13 @@
  * @val: The value to be converted
  * Return: The number of characters printed
  */
+
 int print_hex_extra(unsigned long int val)
 {
 	long int i, counter = 0;
 	long int *array;
 	unsigned long int tem = val;
-	
+
 	while (val / 16 != 0)
 	{
 		val = val / 16;
@@ -25,13 +26,14 @@ int print_hex_extra(unsigned long int val)
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for(i = counter - 1; i >= 0; i--)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 9)
-		{
-		  array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
-	}
+		if
+			(array[i] > 9)
+			{
+				array[i] = array[i] + 7;
+				_putchar(array[i] + '0');
+			}
 	else
 	{
 		_putchar(array[i] + '0');

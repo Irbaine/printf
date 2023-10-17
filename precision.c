@@ -15,7 +15,6 @@ int print_precision(const char *format, int *i, va_list args)
 
 	if (format[a] != '.')
 		return (precision);
-
 	precision = 0;
 
 	for (a += 1; format[a] != '\0'; a++)
