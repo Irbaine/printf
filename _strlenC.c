@@ -9,10 +9,8 @@ int _strlen(char *str)
 {
 	int i;
 
-	for (i = 0 ; str[i] != 0; i++)
-	{
+	for (i = 0 ; str[i] != 0; i++);
 	return (i);
-	}
 }
 /**
  * _strlenC- Same as _strlen applied for constant char pointer s.
@@ -24,8 +22,6 @@ int _strlenC(const char *str)
 {
 	int i;
 
-	for (i = 0 ; str[i] != 0 ; i++)
-	{
+	for (i = 0 ; str[i] != 0 ; i++);
 	return (i);
-	}
 }
