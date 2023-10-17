@@ -57,6 +57,6 @@ int is_digit(char c);
 
 #define LONG 2
 #define SHORT 1
-
-
+int handle_write_char(char c, char buffer[],int flags, int width, int precision, int size);
+#define UNUSED(x) (void)(x);
 #endif
