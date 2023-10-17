@@ -11,7 +11,7 @@ int print_hex(va_list val)
 	int *array;
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
-	
+
 	while (num / 16 != 0)
 	{
 		num = num / 16;
@@ -26,13 +26,12 @@ int print_hex(va_list val)
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for(i = counter - 1; i >= 0; i--)
+	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
-		  array[i] = array[i] +39;
+		array[i] = array[i] + 39;
 		_putchar(array[i] + '0');
-	
 	}
 	free(array);
-	return counter;
+	return (counter);
 }
