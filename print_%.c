@@ -1,7 +1,7 @@
 #include "main.h"
 /**
-* print_37 - prints % signe
-* return : integer
+* print_37 -  prints % signe
+* Return : integer
 **/
 
 int print_37(void)
