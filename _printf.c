@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-    match m[] = {
+    new m[] = {
         {"%c", printf_char}, {"%s", print_string}, {"%%", print_37}, {"%d", print_dec}, {"%i", print_int},
         {"%r", print_reve}, {"%R", print_rot13}, {"%b", print_bin}, {"%u", print_unsigned}, {"%o", print_oct},
         {"%x", print_hex}, {"%X", print_HEX}, {"%S", print_string}, {"%p", print_pointer}
@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
     va_list args;
     int i = 0, len = 0;
     int j;
+   /* char buffer[BUFF_SIZE];*/
 
 va_start(args, format);
         if (format == NULL || (format[0] == '%' && format[1] == '\0'))

@@ -11,14 +11,17 @@ List of Tasks :
 1. Education is when you read the fine print. Experience is what you get if you don't
 
 2. With a face like mine, I do better in print
-                                                                                                                                     3. What one has not experienced, one will never understand in print
-                                                                                 
+
+3. What one has not experienced, one will never understand in print                 
+   Handle the following conversion specifiers                                        
+                                                                      
 4. Nothing in fine print is ever good news
                                                                                     
 5. My weakness is wearing too much leopard print                          
                                                                                     
-6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print                                    
-                                                                                    
+6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in 
+   print
+                                                                                                              
 7. The big print gives and the small print takes away       
                                                                                     
 8. Sarcasm is lost in print                                                         
@@ -37,5 +40,5 @@ List of Tasks :
 14. The flood of print has turned reading into a process of gulping rather than savo
 ring                             
                                                                                     
-15. *
+15. All the above options work well together. 
 
