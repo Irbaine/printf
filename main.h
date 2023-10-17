@@ -24,6 +24,7 @@ int print_unsigned(va_list ar);
 int print_oct(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+#define BUFF_SIZE 1024
 int print_HEX_extra(unsigned int val);
 int print_string(va_list str);
 int print_pointer(va_list val);
