@@ -29,7 +29,7 @@ int print_hex_extra(unsigned long int val)
 	{
 		if (array[i] > 9)
 		{
-		  array[i] = array[i] + 39;
+		  array[i] = array[i] + 7;
 		_putchar(array[i] + '0');
 	}
 	else

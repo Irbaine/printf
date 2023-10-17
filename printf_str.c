@@ -5,24 +5,10 @@
 * Return: the length of the string.
 **/
 int printf_str(va_list val) {
-	char *str;
+	char *str = va_arg(val,char *);
+	int length = (str != NULL ) ? _strlen(str) : 6;
 	int i;
-	int length;
-	
-	str = va_arg(val, char *);
-	if (str == NULL)
-	{
-	str = "(null)";
-	length = _strlen(str);
-	for (i = 0; i < length;i++)
-		_putchar (str[i]);
+	for (i= 0; i < length; i++)
+		_putchar((str != NULL) ? str[i] : "(null)"[i]);
 	return (length);
-	}
-	else
-	{
-		length = _strlen(str);
-		for (i = 0; i < length;i++)
-			_putchar (str[i]);
-		return (length);			
-	}
 }
