@@ -4,11 +4,19 @@
 #include <stdarg.h>
 #include "main.h"
 
-typedef struct format {
+/**
+ * struct format - Struct to represent a format specifier and it's function
+ * @id: The format specifier
+ * @f: The function to handle this format specifier
+ * @parameter: describe the parameter
+ * Return: Always 0 Success
+*/
+
+typedef struct format
+{
 	char *id;
 	int (*f)();
 } new;
-
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -29,10 +37,12 @@ int print_HEX_extra(unsigned int val);
 int print_string(va_list str);
 int print_pointer(va_list val);
 int print_hex_extra(unsigned long int val);
-int print_reve (va_list val);
+int print_reve(va_list val);
 int print_rot13(va_list val);
-int apply_flags_for_signed_number(int flags, int num, char conversion_specifier);
-int apply_flags_for_hex(int flags, unsigned int num, char conversion_specifier);
+int apply_flags_for_signed_number(int flags,
+		int num, char conversion_specifier);
+int apply_flags_for_hex(int flags, unsigned int num,
+		char conversion_specifier);
 void print_buffer(char buffer[], int *buff_ind);
 int print_flags(const char *format, int *i);
 int print_precision(const char *format, int *i, va_list args);
